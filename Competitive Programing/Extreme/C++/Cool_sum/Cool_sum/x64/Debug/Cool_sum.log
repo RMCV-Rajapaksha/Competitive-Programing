@@ -1,0 +1,4 @@
+﻿  Cool_sum.cpp
+D:\competitive programming\Extreme\C++\Cool_sum\Cool_sum\Cool_sum.cpp(12,31): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+D:\competitive programming\Extreme\C++\Cool_sum\Cool_sum\Cool_sum.cpp(18,32): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+  Cool_sum.vcxproj -> D:\competitive programming\Extreme\C++\Cool_sum\x64\Debug\Cool_sum.exe

@@ -1,0 +1,34 @@
+def generate_combinations(bullets):
+    # Dynamic programming to find the minimum pack count for each amount
+    dp = [float('inf')] * (bullets + 1)
+    dp[0] = 0
+
+    for i in range(1, int(bullets**0.5) + 1):
+        for j in range(i**2, bullets + 1):
+            dp[j] = min(dp[j], dp[j - i**2] + 1)
+
+    # Backtrack to generate combinations with minimum pack count
+    min_packs = dp[bullets]
+    combinations = []
+
+    def backtrack(amount, path):
+        if amount == 0:
+            combinations.append(path)
+            return
+
+        for i in range(int(amount**0.5), 0, -1):
+            if amount - i**2 >= 0 and dp[amount - i**2] == dp[amount] - 1:
+                backtrack(amount - i**2, path + [i**2])
+
+    backtrack(bullets, [])
+
+    # Print the combinations line by line
+    for combination in combinations:
+        print(" ".join(map(str, combination)))
+
+# Sample Input 0
+     
+bullets_amount_0 = input()
+
+print(generate_combinations(bullets_amount_0))
+

@@ -1,0 +1,42 @@
+def solve(matrix):
+    d = 0
+    top = 0
+    down = len(matrix) - 1
+    left = 0
+    right = len(matrix[0]) - 1
+    c = 0
+    res = []
+    direction = 0
+    while top <= down and left <= right:
+        if direction == 0:
+            for i in range(left, right + 1):
+                res.append(matrix[top][i])
+                top += 1
+
+        if direction == 1:
+            for i in range(top, down + 1):
+               res.append(matrix[i][right])
+            right -= 1
+
+        if direction == 2:
+            for i in range(right, left - 1, -1):
+               res.append(matrix[down][i])
+            down -= 1
+
+        if direction == 3:
+            for i in range(down, top - 1, -1):
+               res.append(matrix[i][left])
+            left += 1
+
+        direction = (direction + 1) % 4
+    return res
+
+
+y1 = list(map(int, input().rstrip().split())) 
+y2 = list(map(int, input().rstrip().split())) 
+y3 = list(map(int, input().rstrip().split())) 
+y4 = list(map(int, input().rstrip().split())) 
+
+t=[y1,y2,y3,y4]
+
+print(solve(t))
